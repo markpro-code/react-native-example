@@ -6,9 +6,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
+import { GlobalStateContext } from '@src/services/contexts'
+import { navigationRef } from '@src/services/root-navigation';
 import HomeScreen from './src/screens/home';
 
-const GlobalStateContext = React.createContext();
 
 const RootStack = createStackNavigator();
 const { Navigator, Screen } = RootStack;
@@ -25,7 +26,9 @@ export default class App extends React.Component {
     super(...args);
     this.state = {
       /* eslint-disable */
-      userInfo: null,
+      userInfo: {
+          username: 'Mark'
+      },
       setGlobalState: setFn => this.setState(setFn),
       /* eslint-enable */
     };
@@ -35,7 +38,7 @@ export default class App extends React.Component {
     return (
       <GlobalStateContext.Provider value={this.state}>
         <View style={styles.appContainer}>
-          <NavigationContainer>
+          <NavigationContainer ref={navigationRef}>
             <Navigator initialRouteName="HomeScreen">
               <Screen name="ScreenHome" component={HomeScreen} />
             </Navigator>
