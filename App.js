@@ -2,17 +2,12 @@
 (make sure it's at the top and there's nothing else before it) of your entry file */
 import 'react-native-gesture-handler';
 
-import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { GlobalStateContext } from '@src/services/contexts'
+import { GlobalStateContext } from '@src/services/contexts';
 import { navigationRef } from '@src/services/root-navigation';
-import HomeScreen from './src/screens/home';
-
-
-const RootStack = createStackNavigator();
-const { Navigator, Screen } = RootStack;
+import { renderScreens } from '@src/screens';
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -38,11 +33,7 @@ export default class App extends React.Component {
     return (
       <GlobalStateContext.Provider value={this.state}>
         <View style={styles.appContainer}>
-          <NavigationContainer ref={navigationRef}>
-            <Navigator initialRouteName="HomeScreen">
-              <Screen name="ScreenHome" component={HomeScreen} />
-            </Navigator>
-          </NavigationContainer>
+          <NavigationContainer ref={navigationRef}>{renderScreens()}</NavigationContainer>
         </View>
       </GlobalStateContext.Provider>
     );
