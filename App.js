@@ -1,6 +1,7 @@
 /* To finalize installation of react-native-gesture-handler, add the following at the top
 (make sure it's at the top and there's nothing else before it) of your entry file */
 import 'react-native-gesture-handler';
+import '@src/styles/pull-to-refresh.css';
 
 import React from 'react';
 import { StyleSheet, View } from 'react-native';

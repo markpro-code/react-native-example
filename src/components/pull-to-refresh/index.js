@@ -1,10 +1,8 @@
 import React from 'react';
 import { RefreshControl, ScrollView, Platform, StyleSheet, Text, View, Image } from 'react-native';
-// import ReactPullToRefresh from 'react-pull-to-refresh';
+import ReactPullToRefresh from 'react-pull-to-refresh';
 // import RMCPullToRefresh from 'rmc-pull-updown-to-refresh';
-import Spinner from '../../images/spinner.svg';
-
-const loadingImg = require('@src/images/spinner.svg');
+import Spinner from '@src/images/spinner.svg';
 
 console.info('typeof Spinner', typeof Spinner);
 console.info('Spinner', Spinner);
@@ -42,23 +40,21 @@ export default class PullToRefresh extends React.Component {
 
   renderWeb() {
     const { children } = this.props;
-    // return <RMCPullToRefresh onPullDown={this.handleWebRefresh}>{children}</RMCPullToRefresh>;
-    // return <Image source={loadingImg} style={{ width: 100, height: 100 }} />;
-    return <Spinner height={100} width={100} />;
+    // return <Spinner height={100} width={100} />;
 
-    /*
     return (
       <ReactPullToRefresh
         style={{
           flex: 1,
           textAlign: 'center',
         }}
+        icon={<span className="arrow-down">&darr;</span>}
+        loading={<Spinner width={32} height={32} className="loading" />}
         onRefresh={(resolve, reject) => wait(2000).then(resolve)}
       >
         {children}
       </ReactPullToRefresh>
     );
-    */
   }
 
   renderNative() {
