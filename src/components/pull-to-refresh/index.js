@@ -1,11 +1,7 @@
 import React from 'react';
 import { RefreshControl, ScrollView, Platform, StyleSheet, Text, View, Image } from 'react-native';
 import ReactPullToRefresh from 'react-pull-to-refresh';
-// import RMCPullToRefresh from 'rmc-pull-updown-to-refresh';
 import Spinner from '@src/images/spinner.svg';
-
-console.info('typeof Spinner', typeof Spinner);
-console.info('Spinner', Spinner);
 
 const time = 2000;
 const wait = timeout => {
@@ -40,16 +36,12 @@ export default class PullToRefresh extends React.Component {
 
   renderWeb() {
     const { children } = this.props;
-    // return <Spinner height={100} width={100} />;
 
     return (
       <ReactPullToRefresh
-        style={{
-          flex: 1,
-          textAlign: 'center',
-        }}
+        className="bt-pull-to-refresh"
         icon={<span className="arrow-down">&darr;</span>}
-        loading={<Spinner width={32} height={32} className="loading" />}
+        loading={<Spinner width={40} height={40} className="loading" />}
         onRefresh={(resolve, reject) => wait(2000).then(resolve)}
       >
         {children}
