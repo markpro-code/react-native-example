@@ -1,14 +1,30 @@
-import React, { useContext } from 'react';
-import { Text, Button } from 'react-native';
+import React from 'react';
 import ScreenContainer from '@src/components/screen-container';
-import { GlobalStateContext } from '@src/services/contexts';
+import { List } from '@ant-design/react-native';
 
-export default function Home() {
-  const { userInfo, setGlobalState } = useContext(GlobalStateContext);
+const Item = List.Item;
+
+const screenList = [
+  {
+    route: 'ExamplePullRefresh',
+    name: 'example: pull to refresh',
+  },
+  {
+    route: 'ExampleGlobalState',
+    name: 'example: global state',
+  },
+];
+
+export default function Home({ navigation }) {
   return (
     <ScreenContainer>
-      <Text>{JSON.stringify(userInfo, null, 4)}</Text>
-      <Button title="click" onPress={() => setGlobalState({ userInfo: { username: 'click' } })} />
+      <List renderHeader="screen list">
+        {screenList.map(item => (
+          <Item arrow="horizontal" onPress={() => navigation.navigate(item.route)}>
+            {item.name}
+          </Item>
+        ))}
+      </List>
     </ScreenContainer>
   );
 }

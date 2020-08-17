@@ -15,6 +15,7 @@ module.exports = function (api) {
     plugins: [
       ['module-resolver', { alias: { '@src': './src' } }],
       ['inline-dotenv', { path: dotEnvFilePath }],
+      ['import', { libraryName: '@ant-design/react-native' }], // 与 Web 平台的区别是不需要设置 style
     ],
   };
 };

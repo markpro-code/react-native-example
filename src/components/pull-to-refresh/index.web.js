@@ -9,7 +9,7 @@
 import React from 'react';
 import ReactPullToRefresh from 'react-pull-to-refresh';
 import Spinner from '@src/images/spinner.svg';
-import '@src/styles/pull-to-refresh.css';
+import './pull-to-refresh.css';
 
 export default class PullToRefresh extends React.Component {
   render() {
