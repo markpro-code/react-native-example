@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, FlatList, ActivityIndicator, Text } from 'react-native';
 import { isEmpty } from '@src/utils/common';
-// import BMToast from '@src/utils/toast';
 import { get, noop } from 'lodash';
 import Spinner from '@src/images/spinner.svg';
 
@@ -47,7 +46,6 @@ export default class MasterList extends React.Component {
       refreshing: false,
       page: 1,
       totalPages: 0,
-      searchValue: '',
     };
   }
 
@@ -65,7 +63,7 @@ export default class MasterList extends React.Component {
       state => ({ showSpin: isEmpty(state.list), refreshing: true, page }),
       () => {
         this.props
-          .onRequest({ reset, page, limit: 10, searchValue: this.state.searchValue })
+          .onRequest({ reset, page, limit: 10 })
           .then(response => {
             const list = response?.data || [];
             const totalPages = get(response, 'meta.pagination.pages');
@@ -92,7 +90,7 @@ export default class MasterList extends React.Component {
   /* --------- [handlers-end] ----------- */
 
   render() {
-    const { style, renderItem, ListHeaderComponent, ListEmptyComponent, keyExtractor } = this.props;
+    const { style, renderItem, ListHeaderComponent, ListEmptyComponent, keyExtractor, onRequest } = this.props;
     const { list, showSpin, refreshing } = this.state;
     return (
       <View style={[styles.listContainer, style]}>

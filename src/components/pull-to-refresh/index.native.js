@@ -11,13 +11,6 @@ import PropTypes from 'prop-types';
 import { RefreshControl, ScrollView, StyleSheet } from 'react-native';
 import { noop } from 'lodash';
 
-const time = 2000;
-const wait = timeout => {
-  return new Promise(resolve => {
-    setTimeout(resolve, timeout);
-  });
-};
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,8 +36,6 @@ export default class PullToRefresh extends React.Component {
       this.setState(preState => ({ ...preState, refreshing: false }));
     });
   };
-
-  handleWebRefresh = () => wait(time);
 
   render() {
     const { children } = this.props;

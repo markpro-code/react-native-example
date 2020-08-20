@@ -13,6 +13,10 @@ const screenList = [
     route: 'ExampleGlobalState',
     name: 'example: global state',
   },
+  {
+    route: 'ExampleInfiniteCalendar',
+    name: 'example: infinte calendar',
+  },
 ];
 
 export default function Home({ navigation }) {
@@ -20,7 +24,7 @@ export default function Home({ navigation }) {
     <ScreenContainer>
       <List renderHeader="screen list">
         {screenList.map(item => (
-          <Item arrow="horizontal" onPress={() => navigation.navigate(item.route)}>
+          <Item key={item.route} arrow="horizontal" onPress={() => navigation.navigate(item.route)}>
             {item.name}
           </Item>
         ))}
