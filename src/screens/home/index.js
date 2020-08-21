@@ -14,8 +14,12 @@ const screenList = [
     name: 'example: global state',
   },
   {
-    route: 'ExampleInfiniteCalendar',
-    name: 'example: infinte calendar',
+    route: 'ExampleWebInfiniteCalendar',
+    name: 'example: web infinte calendar',
+  },
+  {
+    route: 'ExampleWebFilePreview',
+    name: 'example: web file preview',
   },
 ];
 
