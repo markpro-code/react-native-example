@@ -21,6 +21,10 @@ const screenList = [
     route: 'ExampleWebFilePreview',
     name: 'example: web file preview',
   },
+  {
+    route: 'ExampleModal',
+    name: 'example: modal',
+  },
 ];
 
 export default function Home({ navigation }) {

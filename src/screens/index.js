@@ -5,6 +5,7 @@ import ExamplePullRefresh from '@src/screens/example-pull-refresh';
 import ExampleGlobalState from '@src/screens/example-global-state';
 import ExampleWebInfiniteCalendar from '@src/screens/example-web-infinite-calendar';
 import ExampleWebFilePreview from '@src/screens/example-web-file-preview';
+import ExampleModal from '@src/screens/example-modal';
 
 const RootStack = createStackNavigator();
 const { Navigator, Screen } = RootStack;
@@ -17,6 +18,7 @@ export function renderScreens() {
       <Screen name="ExampleGlobalState" component={ExampleGlobalState} />
       <Screen name="ExampleWebInfiniteCalendar" component={ExampleWebInfiniteCalendar} />
       <Screen name="ExampleWebFilePreview" component={ExampleWebFilePreview} />
+      <Screen name="ExampleModal" component={ExampleModal} />
     </Navigator>
   );
 }
