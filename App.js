@@ -60,11 +60,11 @@ export default class App extends React.Component {
 
     return (
       <GlobalStateContext.Provider value={global}>
-        <View style={styles.appContainer}>
-          <AntdProvider>
+        <AntdProvider>
+          <View style={styles.appContainer}>
             <NavigationContainer ref={navigationRef}>{renderScreens()}</NavigationContainer>
-          </AntdProvider>
-        </View>
+          </View>
+        </AntdProvider>
       </GlobalStateContext.Provider>
     );
   }
